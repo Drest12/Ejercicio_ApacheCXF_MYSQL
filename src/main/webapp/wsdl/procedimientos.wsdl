@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<wsdl:definitions name="ProcedimientosService" targetNamespace="http://Datos/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:tns="http://Datos/" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/">
+  <wsdl:types>
+    <schema xmlns="http://www.w3.org/2001/XMLSchema">
+<import namespace="http://Datos/" schemaLocation="procedimientos_schema1.xsd"/>
+</schema>
+  </wsdl:types>
+  <wsdl:message name="eliminacion">
+    <wsdl:part name="parameters" element="tns:eliminacion">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:message name="eliminacionResponse">
+    <wsdl:part name="parameters" element="tns:eliminacionResponse">
+    </wsdl:part>
+  </wsdl:message>
+  <wsdl:portType name="ProcedimientoInterface">
+    <wsdl:operation name="eliminacion">
+      <wsdl:input name="eliminacion" message="tns:eliminacion">
+    </wsdl:input>
+      <wsdl:output name="eliminacionResponse" message="tns:eliminacionResponse">
+    </wsdl:output>
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="ProcedimientosServiceSoapBinding" type="tns:ProcedimientoInterface">
+    <soap:binding style="document" transport="http://schemas.xmlsoap.org/soap/http"/>
+    <wsdl:operation name="eliminacion">
+      <soap:operation soapAction="urn:Eliminacion" style="document"/>
+      <wsdl:input name="eliminacion">
+        <soap:body use="literal"/>
+      </wsdl:input>
+      <wsdl:output name="eliminacionResponse">
+        <soap:body use="literal"/>
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="ProcedimientosService">
+    <wsdl:port name="ProcedimientosPort" binding="tns:ProcedimientosServiceSoapBinding">
+      <soap:address location="http://localhost:8080/EjercicioApacheCXF_BD/services/ProcedimientosPort"/>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

@@ -1,0 +1,12 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:tns="http://Datos/" attributeFormDefault="unqualified" elementFormDefault="unqualified" targetNamespace="http://Datos/">
+<xsd:element name="eliminacion" type="tns:eliminacion"/>
+<xsd:complexType name="eliminacion">
+<xsd:sequence>
+<xsd:element name="arg0" type="xsd:int"/>
+</xsd:sequence>
+</xsd:complexType>
+<xsd:element name="eliminacionResponse" type="tns:eliminacionResponse"/>
+<xsd:complexType name="eliminacionResponse">
+<xsd:sequence/>
+</xsd:complexType>
+</xsd:schema>
